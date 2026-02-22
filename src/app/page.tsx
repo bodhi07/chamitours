@@ -4,8 +4,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Play, ArrowRight, Instagram, Twitter, Facebook, PlayCircle, Star, MessageSquare, Quote, Camera, MapPin, Phone as PhoneIcon, Mail } from "lucide-react";
+import { useLanguage } from "@/components/common/LanguageProvider";
 
 export default function Home() {
+  const { t } = useLanguage();
   const socialLinks = [
     { icon: Facebook, href: "#" },
     { icon: Twitter, href: "#" },
@@ -13,10 +15,10 @@ export default function Home() {
   ];
 
   const heroCards = [
-    { url: "https://images.unsplash.com/photo-1546708973-b339540b5162?q=80&w=600", alt: "Coastal View", delay: 0.2 },
-    { url: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=600", alt: "Tropical Palm", delay: 0.4, border: "border-primary" },
-    { url: "https://images.unsplash.com/photo-1588665575322-d9527ec3c491?q=80&w=600", alt: "White Temple", delay: 0.6 },
-    { url: "https://images.unsplash.com/photo-1620619767323-b95a89183081?q=80&w=600", alt: "Stupa", delay: 0.8 },
+    { url: "https://images.unsplash.com/photo-1604182118621-6a84e6a0f8f6?q=80&w=600", alt: "Nine Arch Bridge", delay: 0.2 },
+    { url: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=600", alt: "Tea Plantation", delay: 0.4, border: "border-primary" },
+    { url: "https://images.unsplash.com/photo-1588665575322-d9527ec3c491?q=80&w=600", alt: "Mirissa Beach", delay: 0.6 },
+    { url: "https://images.unsplash.com/photo-1620619767323-b95a89183081?q=80&w=600", alt: "Sigiriya Rock", delay: 0.8 },
   ];
 
   return (
@@ -26,8 +28,8 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2000"
-            alt="Sri Lanka Landscape"
+            src="https://images.unsplash.com/photo-1546708973-b339540b5162?q=80&w=2000"
+            alt="Sigiriya Fortress Sri Lanka"
             fill
             className="object-cover"
             priority
@@ -43,38 +45,38 @@ export default function Home() {
             <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
               <div className="flex items-center space-x-3 mb-6">
                 <div className="w-10 h-[2px] bg-secondary rounded-full" />
-                <span className="text-secondary font-bold tracking-[0.3em] text-[10px] uppercase">ChamiTours Presents</span>
+                <span className="text-secondary font-bold tracking-[0.3em] text-[10px] uppercase">{t("hero.subtitle")}</span>
               </div>
 
               <h1 className="text-6xl md:text-8xl font-black leading-[0.88] mb-6 tracking-tighter">
-                Start Your<br />
-                <span className="text-foreground/15" style={{ WebkitTextStroke: "1.5px var(--foreground)" }}>Dream</span>{" "}
-                Journey
+                {t("hero.title")}<br />
+                <span className="text-foreground/15" style={{ WebkitTextStroke: "1.5px var(--foreground)" }}>{t("hero.titleAccent")}</span>{" "}
+                {t("hero.titleEnd")}
               </h1>
 
               <p className="text-base md:text-lg text-foreground/55 mb-10 max-w-lg leading-relaxed font-medium">
-                Discover the unseen beauty of Sri Lanka with our premium guided tours. Tailored experiences crafted just for you.
+                {t("hero.desc")}
               </p>
 
               <div className="flex flex-wrap gap-5 items-center">
                 <button className="btn-primary">
-                  <span>EXPLORE NOW</span>
+                  <span>{t("hero.cta")}</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
                 <button className="flex items-center space-x-4 group">
                   <div className="w-12 h-12 rounded-full border-2 border-foreground/20 flex items-center justify-center group-hover:border-primary group-hover:bg-primary/10 transition-all">
                     <Play className="w-4 h-4 fill-current ml-0.5" />
                   </div>
-                  <span className="text-[10px] font-black tracking-[0.3em] text-foreground/60 group-hover:text-foreground transition-colors">WATCH VIDEO</span>
+                  <span className="text-[10px] font-black tracking-[0.3em] text-foreground/60 group-hover:text-foreground transition-colors uppercase">{t("hero.video")}</span>
                 </button>
               </div>
 
               {/* Stats row */}
               <div className="mt-14 flex flex-wrap gap-10">
                 {[
-                  { num: "2800+", label: "Happy Travelers" },
-                  { num: "120+", label: "Tour Packages" },
-                  { num: "4.9★", label: "Average Rating" },
+                  { num: "2800+", label: t("hero.stats.travelers") },
+                  { num: "120+", label: t("hero.stats.packages") },
+                  { num: "4.9★", label: t("hero.stats.rating") },
                 ].map((s, i) => (
                   <div key={i}>
                     <div className="text-3xl font-black text-foreground tracking-tighter">{s.num}</div>
@@ -396,8 +398,8 @@ export default function Home() {
               style={{ aspectRatio: "4/3" }}
             >
               <Image
-                src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200"
-                alt="Sri Lanka Landscape"
+                src="https://images.unsplash.com/photo-1620619767323-b95a89183081?q=80&w=1200"
+                alt="Sigiriya Rock Fortress Sri Lanka"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
@@ -504,8 +506,8 @@ export default function Home() {
         <div className="relative h-[240px] md:h-[320px] flex items-center justify-center overflow-hidden select-none">
           {/* Background landscape image that shows through text */}
           <Image
-            src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2000"
-            alt="Sri Lanka"
+            src="https://images.unsplash.com/photo-1546708973-b339540b5162?q=80&w=2000"
+            alt="Sri Lanka landscape footer"
             fill
             className="object-cover object-center brightness-50"
           />
@@ -518,7 +520,7 @@ export default function Home() {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="relative z-10 text-[14vw] md:text-[12vw] font-black tracking-tighter leading-none text-transparent bg-clip-text"
             style={{
-              backgroundImage: "url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2000')",
+              backgroundImage: "url('https://images.unsplash.com/photo-1546708973-b339540b5162?q=80&w=2000')",
               backgroundSize: "cover",
               backgroundPosition: "center",
               WebkitTextStroke: "1px rgba(255,255,255,0.12)",
