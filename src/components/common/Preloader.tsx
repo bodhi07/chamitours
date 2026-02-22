@@ -29,7 +29,7 @@ export default function Preloader() {
                 <motion.div
                     initial={{ opacity: 1 }}
                     exit={{ opacity: 0, transition: { duration: 0.8, ease: "easeInOut" } }}
-                    className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-black"
+                    className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-background"
                 >
                     <div className="relative flex flex-col items-center">
                         {/* Textured Logo Text */}
@@ -38,24 +38,24 @@ export default function Preloader() {
                             animate={{ scale: 1, opacity: 1 }}
                             transition={{ duration: 1, ease: "easeOut" }}
                             className="text-8xl md:text-9xl font-black tracking-tighter text-transparent bg-clip-text bg-[url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2000')] bg-cover bg-center"
-                            style={{ WebkitTextStroke: "1px rgba(255,255,255,0.1)" }}
+                            style={{ WebkitTextStroke: "1px rgba(var(--foreground),0.1)" }}
                         >
-                            SURESH
+                            CHAMI
                         </motion.h1>
 
                         <motion.h2
                             initial={{ letterSpacing: "0.2em", opacity: 0 }}
                             animate={{ letterSpacing: "1em", opacity: 1 }}
                             transition={{ delay: 0.5, duration: 1 }}
-                            className="text-2xl md:text-3xl text-white font-light mt-[-20px] ml-[1em]"
+                            className="text-2xl md:text-3xl text-foreground font-light mt-[-20px] ml-[1em]"
                         >
                             TOURS
                         </motion.h2>
 
                         {/* Loading Bar Container */}
-                        <div className="w-64 h-[2px] bg-white/10 mt-16 relative overflow-hidden">
+                        <div className="w-64 h-[2px] bg-foreground/10 mt-16 relative overflow-hidden">
                             <motion.div
-                                className="absolute top-0 left-0 h-full bg-primary shadow-[0_0_15px_#00e5ff]"
+                                className="absolute top-0 left-0 h-full bg-primary shadow-[0_0_15px_var(--primary)]"
                                 initial={{ width: 0 }}
                                 animate={{ width: `${progress}%` }}
                                 transition={{ duration: 0.1 }}
@@ -66,7 +66,7 @@ export default function Preloader() {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: [0, 1, 0] }}
                             transition={{ repeat: Infinity, duration: 2 }}
-                            className="text-[10px] tracking-[0.4em] text-primary/60 mt-4 uppercase font-medium"
+                            className="text-[10px] tracking-[0.4em] text-primary mt-4 uppercase font-medium"
                         >
                             Loading Experience
                         </motion.p>

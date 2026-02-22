@@ -20,9 +20,11 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Suresh Tours - Your Ultimate Sri Lanka Tour Guide",
-  description: "Experience the beauty of Sri Lanka with Suresh Tours. Personalized tour packages and local insights.",
+  title: "ChamiTours - Your Ultimate Sri Lanka Tour Guide",
+  description: "Experience the beauty of Sri Lanka with ChamiTours. Personalized tour packages and local insights.",
 };
+
+import { ThemeProvider } from "@/components/common/ThemeProvider";
 
 export default function RootLayout({
   children,
@@ -32,13 +34,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} antialiased font-sans bg-black text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} antialiased font-sans`}
       >
-        <Preloader />
-        <Navbar />
-        <main>
-          {children}
-        </main>
+        <ThemeProvider>
+          <Preloader />
+          <Navbar />
+          <main>
+            {children}
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   );
