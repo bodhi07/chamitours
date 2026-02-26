@@ -16,7 +16,7 @@ const destinations = [
         tagline: "Nine Arch Bridge & misty mountain views",
         description:
             "Ella is Sri Lanka's most charming hill town, surrounded by dramatic misty mountains, emerald tea fields, and lush jungle. Famous for the iconic Nine Arch Bridge train crossing, Little Adam's Peak sunrise hike, and spectacular Ravana Falls.",
-        img: "https://images.unsplash.com/photo-1604182118621-6a84e6a0f8f6?q=80&w=900&auto=format",
+        img: "/images/destinations/ella-nine-arch.png",
         bestSeason: "Dec – Mar",
         rating: 4.9,
         reviews: 1240,
@@ -33,7 +33,7 @@ const destinations = [
         tagline: "Ancient rock fortress & UNESCO Heritage",
         description:
             "Rising 200m dramatically from the jungle plains, Sigiriya — the Lion Rock — is a 5th-century royal palace. A UNESCO World Heritage Site with ancient frescoes, mirror wall, royal water gardens, and panoramic views over the jungle that stretch for miles.",
-        img: "https://images.unsplash.com/photo-1620619767323-b95a89183081?q=80&w=900&auto=format",
+        img: "/images/destinations/sigiriya-rock-fortress.png",
         bestSeason: "Mar – Sep",
         rating: 4.9,
         reviews: 2100,
@@ -50,7 +50,7 @@ const destinations = [
         tagline: "Turquoise waters & whale watching capital",
         description:
             "Mirissa's crescent beach and sapphire waters are world-famous for blue whale watching — one of Earth's greatest wildlife spectacles. The beach itself is a paradise of swaying palms, fresh seafood, and mesmerising sunsets.",
-        img: "https://images.unsplash.com/photo-1588665575322-d9527ec3c491?q=80&w=900&auto=format",
+        img: "/images/destinations/mirissa-beach.png",
         bestSeason: "Nov – Apr",
         rating: 4.8,
         reviews: 980,
@@ -67,7 +67,7 @@ const destinations = [
         tagline: "Cultural capital & Temple of the Sacred Tooth",
         description:
             "Kandy is Sri Lanka's cultural soul — home to the Temple of the Sacred Tooth Relic, the most revered Buddhist shrine on the island. Set around a serene lake backed by forest-covered hills, it blends spirituality, botanic beauty, and highland culture.",
-        img: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=900&auto=format",
+        img: "/images/destinations/kandy-temple.png",
         bestSeason: "Year-round",
         rating: 4.8,
         reviews: 1850,
@@ -84,7 +84,7 @@ const destinations = [
         tagline: "World's highest density of leopards",
         description:
             "Yala National Park holds the world's highest leopard density and is Sri Lanka's most celebrated wildlife reserve. Open jeep safaris reveal leopards, wild elephants, crocodiles, sloth bears, peacocks, and over 500 bird species.",
-        img: "https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=900&auto=format",
+        img: "/images/destinations/yala-leopard.png",
         bestSeason: "Feb – Jul",
         rating: 4.7,
         reviews: 1340,
@@ -101,7 +101,7 @@ const destinations = [
         tagline: "17th-century Dutch fort & ocean views",
         description:
             "Galle's UNESCO Dutch Fort is Sri Lanka's finest colonial monument — a living city within 3km of ancient rampart walls, cobblestone lanes, boutique shops, a lighthouse, and sweeping Indian Ocean views baked in 350 years of history.",
-        img: "https://images.unsplash.com/photo-1625396605063-27b85e1e8b58?q=80&w=900&auto=format",
+        img: "/images/destinations/galle-fort.png",
         bestSeason: "Nov – Apr",
         rating: 4.6,
         reviews: 890,
@@ -118,7 +118,7 @@ const destinations = [
         tagline: "150+ Buddha statues in cave temples",
         description:
             "The Dambulla Cave Temple is Sri Lanka's largest and best-preserved cave temple complex — a UNESCO World Heritage Site with 5 caves enshrining 150+ gilded Buddhas and 2,100 sq.m of ancient murals dating to the 1st century BC.",
-        img: "https://images.unsplash.com/photo-1609137144813-7d9921338f24?q=80&w=900&auto=format",
+        img: "/images/destinations/dambulla-cave-temple.png",
         bestSeason: "Year-round",
         rating: 4.8,
         reviews: 1560,
@@ -135,7 +135,7 @@ const destinations = [
         tagline: "Sri Lanka's tea capital at 1,868m altitude",
         description:
             "\"Little England\" — the cool highland city of Nuwara Eliya sits at 1,868m surrounded by the world's finest tea estates. Tour working tea factories, taste single-estate teas, and see the 870m cliff drop at World's End in Horton Plains.",
-        img: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=900&auto=format",
+        img: "/images/destinations/nuwara-eliya-tea-estate.png",
         bestSeason: "Jan – Apr",
         rating: 4.7,
         reviews: 780,
@@ -152,7 +152,7 @@ const destinations = [
         tagline: "Pristine beaches & coral reef snorkeling",
         description:
             "Trincomalee on the northeast coast has one of the world's finest natural harbours and some of Sri Lanka's most stunning, uncrowded beaches. Snorkel the live coral at Pigeon Island, visit the cliff-top Koneswaram Temple, and swim in blissfully warm turquoise water.",
-        img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=900&auto=format",
+        img: "/images/destinations/trinco-nilaveli-beach.png",
         bestSeason: "May – Sep",
         rating: 4.7,
         reviews: 560,
@@ -182,7 +182,7 @@ export default function Destinations() {
             {/* ── Hero Banner ── */}
             <section className="relative h-[55vh] min-h-[420px] flex items-end overflow-hidden">
                 <Image
-                    src="https://images.unsplash.com/photo-1625396605063-27b85e1e8b58?q=80&w=1600&auto=format"
+                    src="/images/hero/sigiriya-fortress-hero.png"
                     alt="Sri Lanka destinations"
                     fill
                     priority

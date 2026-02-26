@@ -25,7 +25,7 @@ const dayTours = [
         rating: 4.9,
         reviews: 842,
         groupSize: "2–14",
-        img: "https://images.unsplash.com/photo-1620619767323-b95a89183081?q=80&w=900&auto=format",
+        img: "/images/destinations/sigiriya-rock-fortress.png",
         tag: "Most Popular",
         tagColor: "bg-secondary text-black",
         pickup: "Colombo / Negombo / Kandy",
@@ -49,7 +49,7 @@ const dayTours = [
         rating: 4.9,
         reviews: 620,
         groupSize: "2–10",
-        img: "https://images.unsplash.com/photo-1604182118621-6a84e6a0f8f6?q=80&w=900&auto=format",
+        img: "/images/destinations/ella-nine-arch.png",
         tag: "Scenic",
         tagColor: "bg-emerald-600 text-white",
         pickup: "Colombo / Kandy / Nuwara Eliya",
@@ -73,7 +73,7 @@ const dayTours = [
         rating: 4.8,
         reviews: 912,
         groupSize: "2–16",
-        img: "https://images.unsplash.com/photo-1586613835341-6f5cf4056c52?q=80&w=900&auto=format",
+        img: "/images/destinations/kandy-temple.png",
         tag: "Cultural",
         tagColor: "bg-violet-600 text-white",
         pickup: "Colombo / Negombo",
@@ -97,7 +97,7 @@ const dayTours = [
         rating: 4.8,
         reviews: 534,
         groupSize: "2–6",
-        img: "https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=900&auto=format",
+        img: "/images/destinations/yala-leopard.png",
         tag: "Wildlife",
         tagColor: "bg-amber-600 text-white",
         pickup: "Colombo / Galle / Hambantota",
@@ -121,7 +121,7 @@ const dayTours = [
         rating: 4.7,
         reviews: 1120,
         groupSize: "2–20",
-        img: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=900&auto=format",
+        img: "/images/tours/whale-watching.png",
         tag: "Ocean",
         tagColor: "bg-blue-500 text-white",
         pickup: "Mirissa / Galle / Tangalle",
@@ -145,7 +145,7 @@ const dayTours = [
         rating: 4.8,
         reviews: 445,
         groupSize: "2–12",
-        img: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=900&auto=format",
+        img: "/images/destinations/nuwara-eliya-tea-estate.png",
         tag: "Scenic",
         tagColor: "bg-teal-600 text-white",
         pickup: "Colombo / Kandy / Ella",
@@ -169,7 +169,7 @@ const dayTours = [
         rating: 4.9,
         reviews: 388,
         groupSize: "2–8",
-        img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=900&auto=format",
+        img: "/images/destinations/yala-leopard.png",
         tag: "Elephants",
         tagColor: "bg-stone-600 text-white",
         pickup: "Colombo / Galle / Hambantota / Ella",
@@ -193,7 +193,7 @@ const dayTours = [
         rating: 4.7,
         reviews: 276,
         groupSize: "2–12",
-        img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=900&auto=format",
+        img: "/images/destinations/trinco-nilaveli-beach.png",
         tag: "Beach",
         tagColor: "bg-cyan-600 text-white",
         pickup: "Colombo / Sigiriya / Polonnaruwa",
@@ -220,7 +220,7 @@ const cityTours = [
         duration: "Half Day (4–5 hrs)",
         price: "$35",
         priceNote: "per person",
-        img: "https://images.unsplash.com/photo-1567473438-80e54879c06e?q=80&w=900&auto=format",
+        img: "/images/hero/sigiriya-fortress-hero.png",
         highlights: [
             "Gangaramaya Temple (Buddhist)",
             "Independence Square & Arcade",
@@ -241,7 +241,7 @@ const cityTours = [
         duration: "Half Day (3–4 hrs)",
         price: "$30",
         priceNote: "per person",
-        img: "https://images.unsplash.com/photo-1625396605063-27b85e1e8b58?q=80&w=900&auto=format",
+        img: "/images/destinations/galle-fort.png",
         highlights: [
             "Dutch Fort rampart walk",
             "Galle Lighthouse",
@@ -262,7 +262,7 @@ const cityTours = [
         duration: "Half Day (4 hrs)",
         price: "$30",
         priceNote: "per person",
-        img: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=900&auto=format",
+        img: "/images/destinations/kandy-temple.png",
         highlights: [
             "Temple of the Sacred Tooth Relic",
             "Kandyan Arts Association performance",
@@ -290,7 +290,7 @@ const cruiseTours = [
         duration: "6–7 hrs",
         distance: "~30 km from port",
         price: "$80",
-        img: "https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=900&auto=format",
+        img: "/images/destinations/yala-leopard.png",
         highlights: ["Leopard spotting", "Wild elephants", "Crocodiles", "500+ bird species"],
         shipReturn: "✔ Back at port before ship departure",
         description: "Yala is Sri Lanka's most famous wildlife reserve and only 30–40 minutes from Hambantota Port — perfect for cruise ship guests. A trained tracker guides your open jeep through the park's spectacular dry-zone ecosystem.",
@@ -303,7 +303,7 @@ const cruiseTours = [
         duration: "5–6 hrs",
         distance: "~65 km from port",
         price: "$75",
-        img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=900&auto=format",
+        img: "/images/destinations/yala-leopard.png",
         highlights: ["200+ wild elephants", "Elephant orphanage feeding", "Birds & wildlife", "Scenic reservoir"],
         shipReturn: "✔ Back at port before ship departure",
         description: "Udawalawe National Park offers virtually guaranteed elephant sightings — herds of 50–100 elephants roam the open savannah. Also visit the Elephant Transit Home where orphan elephant calves are bottle-fed.",
@@ -316,7 +316,7 @@ const cruiseTours = [
         duration: "4–5 hrs",
         distance: "~55 km from port",
         price: "$50",
-        img: "https://images.unsplash.com/photo-1609137144813-7d9921338f24?q=80&w=900&auto=format",
+        img: "/images/destinations/dambulla-cave-temple.png",
         highlights: ["Ancient Hindu-Buddhist shrine", "Menik Ganga river", "Peacocks roaming freely", "Unique Sri Lankan pilgrimage"],
         shipReturn: "✔ Back at port before ship departure",
         description: "Kataragama is one of Sri Lanka's most sacred sites — revered simultaneously by Hindus, Buddhists, and Muslims. Colourful shrines, sacred river bathing, and hundreds of freely roaming peacocks make this an unforgettable cultural experience.",
@@ -329,7 +329,7 @@ const cruiseTours = [
         duration: "6–7 hrs",
         distance: "~85 km from port",
         price: "$90",
-        img: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=900&auto=format",
+        img: "/images/tours/whale-watching.png",
         highlights: ["Blue whale encounters", "Spinner dolphin pods", "Mirissa crescent beach", "Fresh seafood lunch"],
         shipReturn: "✔ Timed to ship schedule",
         description: "Catch a whale-watching boat from Mirissa's harbour — one of the world's best spots for blue whale sightings — then relax on the stunning crescent beach. Lunch at a beachfront restaurant before returning to Hambantota Port.",
@@ -342,7 +342,7 @@ const cruiseTours = [
         duration: "7–8 hrs",
         distance: "Galle: ~100 km from port",
         price: "$70",
-        img: "https://images.unsplash.com/photo-1625396605063-27b85e1e8b58?q=80&w=900&auto=format",
+        img: "/images/destinations/galle-fort.png",
         highlights: ["Stilt fishermen photos", "Galle Dutch Fort", "Beach time", "Boutique shops"],
         shipReturn: "✔ Back at port before ship departure",
         description: "Stop at Weligama to photograph Sri Lanka's iconic stilt fishermen — perched on poles planted in the sea. Then explore the UNESCO-listed Galle Fort, walking the 17th-century Dutch ramparts with sweeping ocean views.",
@@ -355,7 +355,7 @@ const cruiseTours = [
         duration: "3–4 hrs",
         distance: "~15 km from port",
         price: "$45",
-        img: "https://images.unsplash.com/photo-1439066615861-d1af74d74000?q=80&w=900&auto=format",
+        img: "/images/destinations/trinco-nilaveli-beach.png",
         highlights: ["Flamingos & pelicans", "Crocodiles", "150+ bird species", "Peaceful lagoon safari"],
         shipReturn: "✔ Closest tour to port",
         description: "Just 15 minutes from Hambantota Port, Bundala is a UNESCO Biosphere Reserve and wetland sanctuary. Open-jeep lagoon safari through mangroves to spot Eurasian flamingos, pelicans, painted storks, and mugger crocodiles.",
@@ -394,7 +394,7 @@ export default function Tours() {
             {/* ── HERO ── */}
             <section className="relative h-[58vh] min-h-[440px] flex items-end overflow-hidden">
                 <Image
-                    src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=1600&auto=format"
+                    src="/images/hero/sigiriya-fortress-hero.png"
                     alt="Sri Lanka Tours"
                     fill priority
                     className="object-cover scale-105"
@@ -680,7 +680,7 @@ export default function Tours() {
                         <div className="relative overflow-hidden bg-[#0a1628] py-16 mb-16">
                             <div className="absolute inset-0 opacity-20">
                                 <Image
-                                    src="https://images.unsplash.com/photo-1548438294-1ad5d5f4f063?q=80&w=1600&auto=format"
+                                    src="/images/hero/sigiriya-fortress-hero.png"
                                     alt="Hambantota Port cruise ship"
                                     fill
                                     className="object-cover"

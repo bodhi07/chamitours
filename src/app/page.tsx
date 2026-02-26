@@ -3,11 +3,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Play, ArrowRight, Instagram, Twitter, Facebook, PlayCircle, Star, MessageSquare, Quote, Camera, MapPin, Phone as PhoneIcon, Mail } from "lucide-react";
+import { Play, ArrowRight, Instagram, Twitter, Facebook, PlayCircle, Star, MessageSquare, Quote, Camera, MapPin, Phone as PhoneIcon, Mail, X } from "lucide-react";
 import { useLanguage } from "@/components/common/LanguageProvider";
+import { useState } from "react";
+import VideoModal from "@/components/common/VideoModal";
 
 export default function Home() {
   const { t } = useLanguage();
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const socialLinks = [
     { icon: Facebook, href: "#" },
     { icon: Twitter, href: "#" },
@@ -15,27 +18,42 @@ export default function Home() {
   ];
 
   const heroCards = [
-    { url: "https://images.unsplash.com/photo-1604182118621-6a84e6a0f8f6?q=80&w=600", alt: "Nine Arch Bridge", delay: 0.2 },
-    { url: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=600", alt: "Tea Plantation", delay: 0.4, border: "border-primary" },
-    { url: "https://images.unsplash.com/photo-1588665575322-d9527ec3c491?q=80&w=600", alt: "Mirissa Beach", delay: 0.6 },
-    { url: "https://images.unsplash.com/photo-1620619767323-b95a89183081?q=80&w=600", alt: "Sigiriya Rock", delay: 0.8 },
+    { url: "/images/destinations/ella-nine-arch.png", alt: "Nine Arch Bridge", delay: 0.2 },
+    { url: "/images/destinations/nuwara-eliya-tea-estate.png", alt: "Tea Plantation", delay: 0.4, border: "border-primary" },
+    { url: "/images/destinations/mirissa-beach.png", alt: "Mirissa Beach", delay: 0.6 },
+    { url: "/images/destinations/sigiriya-rock-fortress.png", alt: "Sigiriya Rock", delay: 0.8 },
   ];
 
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground">
+      <VideoModal
+        isOpen={isVideoModalOpen}
+        onClose={() => setIsVideoModalOpen(false)}
+        videoUrl="https://www.youtube.com/embed/o4jTIO6WBZY"
+      />
 
       {/* ══════════════ HERO ══════════════ */}
-      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-black">
         <div className="absolute inset-0 z-0">
+          {/* Background Video */}
+          <div className="absolute inset-0 w-full h-full pointer-events-none opacity-60">
+            <iframe
+              src="https://www.youtube.com/embed/o4jTIO6WBZY?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&autohide=1&playlist=o4jTIO6WBZY&rel=0"
+              className="absolute top-1/2 left-1/2 w-[110%] h-[110%] -translate-x-1/2 -translate-y-1/2 object-cover aspect-video scale-110"
+              allow="autoplay; encrypted-media"
+              style={{ pointerEvents: 'none' }}
+            />
+          </div>
+
           <Image
-            src="https://images.unsplash.com/photo-1546708973-b339540b5162?q=80&w=2000"
+            src="/images/hero/sigiriya-fortress-hero.png"
             alt="Sigiriya Fortress Sri Lanka"
             fill
-            className="object-cover"
+            className="object-cover opacity-30" // Becomes visible if video fails or as a fallback
             priority
           />
           {/* Gradient overlay — adapts per theme via CSS class */}
-          <div className="hero-overlay absolute inset-0" />
+          <div className="hero-overlay absolute inset-0 bg-black/40" />
           <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent" />
         </div>
 
@@ -48,13 +66,13 @@ export default function Home() {
                 <span className="text-secondary font-bold tracking-[0.3em] text-[10px] uppercase">{t("hero.subtitle")}</span>
               </div>
 
-              <h1 className="text-6xl md:text-8xl font-black leading-[0.88] mb-6 tracking-tighter">
+              <h1 className="text-6xl md:text-8xl font-black leading-[0.88] mb-6 tracking-tighter text-white">
                 {t("hero.title")}<br />
-                <span className="text-foreground/15" style={{ WebkitTextStroke: "1.5px var(--foreground)" }}>{t("hero.titleAccent")}</span>{" "}
+                <span className="text-white/20" style={{ WebkitTextStroke: "1.5px var(--foreground)" }}>{t("hero.titleAccent")}</span>{" "}
                 {t("hero.titleEnd")}
               </h1>
 
-              <p className="text-base md:text-lg text-foreground/55 mb-10 max-w-lg leading-relaxed font-medium">
+              <p className="text-base md:text-lg text-white/70 mb-10 max-w-lg leading-relaxed font-medium">
                 {t("hero.desc")}
               </p>
 
@@ -63,11 +81,14 @@ export default function Home() {
                   <span>{t("hero.cta")}</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
-                <button className="flex items-center space-x-4 group">
-                  <div className="w-12 h-12 rounded-full border-2 border-foreground/20 flex items-center justify-center group-hover:border-primary group-hover:bg-primary/10 transition-all">
-                    <Play className="w-4 h-4 fill-current ml-0.5" />
+                <button
+                  onClick={() => setIsVideoModalOpen(true)}
+                  className="flex items-center space-x-4 group"
+                >
+                  <div className="w-12 h-12 rounded-full border-2 border-white/20 flex items-center justify-center group-hover:border-primary group-hover:bg-primary/10 transition-all">
+                    <Play className="w-4 h-4 fill-white text-white ml-0.5" />
                   </div>
-                  <span className="text-[10px] font-black tracking-[0.3em] text-foreground/60 group-hover:text-foreground transition-colors uppercase">{t("hero.video")}</span>
+                  <span className="text-[10px] font-black tracking-[0.3em] text-white/60 group-hover:text-white transition-colors uppercase">{t("hero.video")}</span>
                 </button>
               </div>
 
@@ -153,10 +174,10 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              { label: "AERIAL VIEW", title: "Paragliding", img: "https://images.unsplash.com/photo-1594495894542-a471467e45f1?q=80&w=800" },
-              { label: "RELAXING", title: "Beach Sports", img: "https://images.unsplash.com/photo-1520110120385-ad291a19a801?q=80&w=800" },
-              { label: "ADVENTURE", title: "Surfing", img: "https://images.unsplash.com/photo-1502680390469-be75c86b636f?q=80&w=800" },
-              { label: "NATURE", title: "Mangroves", img: "https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?q=80&w=800" },
+              { label: "AERIAL VIEW", title: "Paragliding", img: "/images/activities/paragliding.png" },
+              { label: "RELAXING", title: "Beach Sports", img: "/images/destinations/mirissa-beach.png" },
+              { label: "ADVENTURE", title: "Surfing", img: "/images/activities/surfing.png" },
+              { label: "NATURE", title: "Mangroves", img: "/images/activities/mangrove.png" },
             ].map((act, idx) => (
               <motion.div
                 key={idx}
@@ -200,10 +221,10 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
-              "https://images.unsplash.com/photo-1546708973-b339540b5162?q=80&w=800",
-              "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=800",
-              "https://images.unsplash.com/photo-1588665575322-d9527ec3c491?q=80&w=800",
-              "https://images.unsplash.com/photo-1620619767323-b95a89183081?q=80&w=800",
+              "/images/destinations/sigiriya-rock-fortress.png",
+              "/images/destinations/nuwara-eliya-tea-estate.png",
+              "/images/destinations/mirissa-beach.png",
+              "/images/destinations/yala-leopard.png",
             ].map((img, idx) => (
               <motion.div
                 key={idx}
@@ -234,7 +255,7 @@ export default function Home() {
               className="relative rounded-[2.5rem] overflow-hidden group aspect-[4/5] lg:aspect-auto lg:h-[660px] shadow-[var(--shadow-xl)]"
             >
               <Image
-                src="https://images.unsplash.com/photo-1551918120-9739cb430c6d?q=80&w=1200"
+                src="/images/tours/stilt-fishermen.png"
                 alt="Stilt Fishermen"
                 fill
                 className="object-cover transition-transform duration-1000 group-hover:scale-105"
@@ -316,10 +337,10 @@ export default function Home() {
 
           <div className="grid md:grid-cols-4 gap-4">
             {[
-              { title: "EXPERT GUIDES", desc: "Friendly local guides", img: "https://images.unsplash.com/photo-1546708973-b339540b5162?q=80&w=400" },
-              { title: "HOTEL BOOKING", desc: "Best resorts & stays", img: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=400", active: true },
-              { title: "24/7 SUPPORT", desc: "Anytime assistance", img: "https://images.unsplash.com/photo-1588665575322-d9527ec3c491?q=80&w=400" },
-              { title: "SAFARI TOURS", desc: "Wildlife adventures", img: "https://images.unsplash.com/photo-1620619767323-b95a89183081?q=80&w=400" },
+              { title: "EXPERT GUIDES", desc: "Friendly local guides", img: "/images/destinations/kandy-temple.png" },
+              { title: "HOTEL BOOKING", desc: "Best resorts & stays", img: "/images/destinations/nuwara-eliya-tea-estate.png", active: true },
+              { title: "24/7 SUPPORT", desc: "Anytime assistance", img: "/images/destinations/mirissa-beach.png" },
+              { title: "SAFARI TOURS", desc: "Wildlife adventures", img: "/images/destinations/yala-leopard.png" },
             ].map((svc, idx) => (
               <motion.div
                 key={idx}
@@ -398,7 +419,7 @@ export default function Home() {
               style={{ aspectRatio: "4/3" }}
             >
               <Image
-                src="https://images.unsplash.com/photo-1620619767323-b95a89183081?q=80&w=1200"
+                src="/images/destinations/sigiriya-rock-fortress.png"
                 alt="Sigiriya Rock Fortress Sri Lanka"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -425,10 +446,10 @@ export default function Home() {
 
             {/* 4 small portrait cards */}
             {[
-              { img: "https://images.unsplash.com/photo-1546708973-b339540b5162?q=80&w=600", label: "Kandy Temple", tag: "Culture" },
-              { img: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=600", label: "Ella Highlands", tag: "Adventure" },
-              { img: "https://images.unsplash.com/photo-1588665575322-d9527ec3c491?q=80&w=600", label: "Mirissa Beach", tag: "Beach" },
-              { img: "https://images.unsplash.com/photo-1620619767323-b95a89183081?q=80&w=600", label: "Sigiriya Rock", tag: "History" },
+              { img: "/images/destinations/kandy-temple.png", label: "Kandy Temple", tag: "Culture" },
+              { img: "/images/destinations/ella-nine-arch.png", label: "Ella Highlands", tag: "Adventure" },
+              { img: "/images/destinations/mirissa-beach.png", label: "Mirissa Beach", tag: "Beach" },
+              { img: "/images/destinations/sigiriya-rock-fortress.png", label: "Sigiriya Rock", tag: "History" },
             ].map((photo, idx) => (
               <motion.div
                 key={idx}
@@ -506,7 +527,7 @@ export default function Home() {
         <div className="relative h-[240px] md:h-[320px] flex items-center justify-center overflow-hidden select-none">
           {/* Background landscape image that shows through text */}
           <Image
-            src="https://images.unsplash.com/photo-1546708973-b339540b5162?q=80&w=2000"
+            src="/images/misc/tea-plantation-footer.png"
             alt="Sri Lanka landscape footer"
             fill
             className="object-cover object-center brightness-50"
@@ -520,7 +541,7 @@ export default function Home() {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="relative z-10 text-[14vw] md:text-[12vw] font-black tracking-tighter leading-none text-transparent bg-clip-text"
             style={{
-              backgroundImage: "url('https://images.unsplash.com/photo-1546708973-b339540b5162?q=80&w=2000')",
+              backgroundImage: "url('/images/hero/sigiriya-fortress-hero.png')",
               backgroundSize: "cover",
               backgroundPosition: "center",
               WebkitTextStroke: "1px rgba(255,255,255,0.12)",

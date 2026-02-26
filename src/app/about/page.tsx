@@ -23,10 +23,10 @@ const values = [
 ];
 
 const team = [
-    { name: "Chami Perera", role: "Founder & Head Guide", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400", exp: "15 yrs" },
-    { name: "Dilshan Fernando", role: "Wildlife Specialist", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400", exp: "10 yrs" },
-    { name: "Nadeeka Silva", role: "Cultural Heritage Guide", img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400", exp: "8 yrs" },
-    { name: "Ruwan Jayawardena", role: "Adventure Guide", img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=400", exp: "12 yrs" },
+    { name: "Chami Perera", role: "Founder & Head Guide", img: "/images/team/team-real-3.jpg", exp: "15 yrs" },
+    { name: "Dilshan Fernando", role: "Wildlife Specialist", img: "/images/team/team-real-4.jpg", exp: "10 yrs" },
+    { name: "Nadeeka Silva", role: "Cultural Heritage Guide", img: "/images/team/team-real-1.jpg", exp: "8 yrs" },
+    { name: "Ruwan Jayawardena", role: "Adventure Guide", img: "/images/team/team-real-2.jpg", exp: "12 yrs" },
 ];
 
 export default function About() {
@@ -39,7 +39,7 @@ export default function About() {
 
             {/* ── Hero ── */}
             <section className="relative h-[60vh] min-h-[460px] flex items-end overflow-hidden">
-                <Image src="https://images.unsplash.com/photo-1604182118621-6a84e6a0f8f6?q=80&w=1600" alt="Nine Arch Bridge Ella" fill priority className="object-cover scale-105" />
+                <Image src="/images/hero/sigiriya-fortress-hero.png" alt="Nine Arch Bridge Ella" fill priority className="object-cover scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10" />
                 <div className="relative z-10 container mx-auto px-6 md:px-12 pb-20">
                     <Link href="/" className="inline-flex items-center space-x-2 text-white/50 hover:text-white transition-colors mb-6 group text-xs font-bold tracking-widest">
@@ -94,7 +94,7 @@ export default function About() {
 
                     <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="relative">
                         <div className="relative rounded-3xl overflow-hidden aspect-[4/5] shadow-[var(--shadow-xl)]">
-                            <Image src="https://images.unsplash.com/photo-1438012515651-0994da9c24dc?q=80&w=800" alt="Stilt Fishermen Sri Lanka" fill className="object-cover" />
+                            <Image src="/images/tours/stilt-fishermen.png" alt="Stilt Fishermen Sri Lanka" fill className="object-cover" />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                         </div>
                         {/* Floating review card */}

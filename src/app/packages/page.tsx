@@ -17,7 +17,7 @@ const packages = [
         priceNote: "per person",
         badge: "Best Value",
         badgeColor: "bg-blue-500",
-        img: "https://images.unsplash.com/photo-1588665575322-d9527ec3c491?q=80&w=900",
+        img: "/images/destinations/mirissa-beach.png",
         rating: 4.8,
         reviews: 312,
         groupSize: "2–12 people",
@@ -47,7 +47,7 @@ const packages = [
         priceNote: "per person",
         badge: "Most Popular",
         badgeColor: "bg-secondary",
-        img: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=900",
+        img: "/images/hero/sigiriya-fortress-hero.png",
         rating: 4.9,
         reviews: 428,
         groupSize: "2–10 people",
@@ -79,7 +79,7 @@ const packages = [
         priceNote: "per person",
         badge: "Cultural",
         badgeColor: "bg-amber-600",
-        img: "https://images.unsplash.com/photo-1620619767323-b95a89183081?q=80&w=900",
+        img: "/images/destinations/sigiriya-rock-fortress.png",
         rating: 4.9,
         reviews: 265,
         groupSize: "2–8 people",
@@ -112,7 +112,7 @@ const packages = [
         priceNote: "per person",
         badge: "Best Experience",
         badgeColor: "bg-violet-600",
-        img: "https://images.unsplash.com/photo-1546708973-b339540b5162?q=80&w=900",
+        img: "/images/destinations/ella-nine-arch.png",
         rating: 5.0,
         reviews: 189,
         groupSize: "2–8 people",
@@ -164,7 +164,7 @@ export default function Packages() {
 
             {/* ── Hero ── */}
             <section className="relative h-[50vh] min-h-[380px] flex items-end overflow-hidden">
-                <Image src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=1600" alt="Sri Lanka Tea Country" fill priority className="object-cover scale-105" />
+                <Image src="/images/hero/misty-highlands.png" alt="Sri Lanka Tea Country" fill priority className="object-cover scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
                 <div className="relative z-10 container mx-auto px-6 md:px-12 pb-16">
                     <Link href="/" className="inline-flex items-center space-x-2 text-white/50 hover:text-white transition-colors mb-6 group text-xs font-bold tracking-widest">

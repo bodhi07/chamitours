@@ -10,30 +10,30 @@ const categories = ["All", "Beaches", "Hill Country", "Wildlife", "Culture & Her
 
 const photos = [
     /* ──── Beaches ──── */
-    { src: "https://images.unsplash.com/photo-1588665575322-d9527ec3c491?q=80&w=900&auto=format", cat: "Beaches", title: "Mirissa Beach", loc: "Southern Coast", size: "wide" },
-    { src: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=900&auto=format", cat: "Beaches", title: "Nilaveli Beach", loc: "Trincomalee", size: "normal" },
-    { src: "https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=900&auto=format", cat: "Beaches", title: "Unawatuna Beach", loc: "Galle", size: "tall" },
-    { src: "https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=900&auto=format", cat: "Beaches", title: "Arugam Bay Surf", loc: "Eastern Province", size: "wide" },
+    { src: "/images/destinations/mirissa-beach.png", cat: "Beaches", title: "Mirissa Beach", loc: "Southern Coast", size: "wide" },
+    { src: "/images/destinations/trinco-nilaveli-beach.png", cat: "Beaches", title: "Nilaveli Beach", loc: "Trincomalee", size: "normal" },
+    { src: "/images/destinations/mirissa-beach.png", cat: "Beaches", title: "Unawatuna Beach", loc: "Galle", size: "tall" },
+    { src: "/images/activities/surfing.png", cat: "Beaches", title: "Arugam Bay Surf", loc: "Eastern Province", size: "wide" },
     /* ──── Hill Country ──── */
-    { src: "https://images.unsplash.com/photo-1604182118621-6a84e6a0f8f6?q=80&w=900&auto=format", cat: "Hill Country", title: "Nine Arch Bridge", loc: "Ella", size: "wide" },
-    { src: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=900&auto=format", cat: "Hill Country", title: "Tea Plantation Vista", loc: "Nuwara Eliya", size: "tall" },
-    { src: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=900&auto=format", cat: "Hill Country", title: "Misty Highlands", loc: "Horton Plains", size: "normal" },
-    { src: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=900&auto=format", cat: "Hill Country", title: "Kandy Lake View", loc: "Kandy", size: "normal" },
+    { src: "/images/destinations/ella-nine-arch.png", cat: "Hill Country", title: "Nine Arch Bridge", loc: "Ella", size: "wide" },
+    { src: "/images/destinations/nuwara-eliya-tea-estate.png", cat: "Hill Country", title: "Tea Plantation Vista", loc: "Nuwara Eliya", size: "tall" },
+    { src: "/images/hero/misty-highlands.png", cat: "Hill Country", title: "Misty Highlands", loc: "Horton Plains", size: "normal" },
+    { src: "/images/destinations/kandy-temple.png", cat: "Hill Country", title: "Kandy Lake View", loc: "Kandy", size: "normal" },
     /* ──── Wildlife ──── */
-    { src: "https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=900&auto=format", cat: "Wildlife", title: "Yala Leopard Safari", loc: "Yala National Park", size: "wide" },
-    { src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=900&auto=format", cat: "Wildlife", title: "Wild Elephant Herd", loc: "Udawalawe", size: "normal" },
-    { src: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=900&auto=format", cat: "Wildlife", title: "Blue Whale — Indian Ocean", loc: "Mirissa", size: "tall" },
-    { src: "https://images.unsplash.com/photo-1439066615861-d1af74d74000?q=80&w=900&auto=format", cat: "Wildlife", title: "Bundala Flamingos", loc: "Bundala", size: "normal" },
+    { src: "/images/destinations/yala-leopard.png", cat: "Wildlife", title: "Yala Leopard Safari", loc: "Yala National Park", size: "wide" },
+    { src: "/images/destinations/yala-leopard.png", cat: "Wildlife", title: "Wild Elephant Herd", loc: "Udawalawe", size: "normal" },
+    { src: "/images/activities/whale-watching.png", cat: "Wildlife", title: "Blue Whale — Indian Ocean", loc: "Mirissa", size: "tall" },
+    { src: "/images/tours/bundala-birds.png", cat: "Wildlife", title: "Bundala Flamingos", loc: "Bundala", size: "normal" },
     /* ──── Culture & Heritage ──── */
-    { src: "https://images.unsplash.com/photo-1620619767323-b95a89183081?q=80&w=900&auto=format", cat: "Culture & Heritage", title: "Sigiriya Rock Fortress", loc: "Cultural Triangle", size: "tall" },
-    { src: "https://images.unsplash.com/photo-1625396605063-27b85e1e8b58?q=80&w=900&auto=format", cat: "Culture & Heritage", title: "Galle Dutch Fort", loc: "Galle", size: "wide" },
-    { src: "https://images.unsplash.com/photo-1609137144813-7d9921338f24?q=80&w=900&auto=format", cat: "Culture & Heritage", title: "Dambulla Cave Temple", loc: "Cultural Triangle", size: "normal" },
-    { src: "https://images.unsplash.com/photo-1586613835341-6f5cf4056c52?q=80&w=900&auto=format", cat: "Culture & Heritage", title: "Temple of Tooth Relic", loc: "Kandy", size: "normal" },
+    { src: "/images/destinations/sigiriya-rock-fortress.png", cat: "Culture & Heritage", title: "Sigiriya Rock Fortress", loc: "Cultural Triangle", size: "tall" },
+    { src: "/images/destinations/galle-fort.png", cat: "Culture & Heritage", title: "Galle Dutch Fort", loc: "Galle", size: "wide" },
+    { src: "/images/destinations/dambulla-cave-temple.png", cat: "Culture & Heritage", title: "Dambulla Cave Temple", loc: "Cultural Triangle", size: "normal" },
+    { src: "/images/destinations/kandy-temple.png", cat: "Culture & Heritage", title: "Temple of Tooth Relic", loc: "Kandy", size: "normal" },
     /* ──── Adventure & Nature ──── */
-    { src: "https://images.unsplash.com/photo-1571401835393-8c5f35328320?q=80&w=900&auto=format", cat: "Adventure & Nature", title: "Surfing at Arugam Bay", loc: "East Coast", size: "normal" },
-    { src: "https://images.unsplash.com/photo-1548438294-1ad5d5f4f063?q=80&w=900&auto=format", cat: "Adventure & Nature", title: "Hambantota Port at Dawn", loc: "Hambantota", size: "wide" },
-    { src: "https://images.unsplash.com/photo-1438012515651-0994da9c24dc?q=80&w=900&auto=format", cat: "Adventure & Nature", title: "Stilt Fishermen", loc: "Weligama", size: "tall" },
-    { src: "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?q=80&w=900&auto=format", cat: "Adventure & Nature", title: "Rainforest Waterfall", loc: "Sinharaja", size: "normal" },
+    { src: "/images/activities/surfing.png", cat: "Adventure & Nature", title: "Surfing at Arugam Bay", loc: "East Coast", size: "normal" },
+    { src: "/images/hero/sigiriya-fortress-hero.png", cat: "Adventure & Nature", title: "Sigiriya at Dawn", loc: "Hambantota", size: "wide" },
+    { src: "/images/tours/stilt-fishermen.png", cat: "Adventure & Nature", title: "Stilt Fishermen", loc: "Weligama", size: "tall" },
+    { src: "/images/activities/sinharaja.png", cat: "Adventure & Nature", title: "Rainforest Waterfall", loc: "Sinharaja", size: "normal" },
 ];
 
 export default function Gallery() {
@@ -92,7 +92,7 @@ export default function Gallery() {
 
             {/* ── Hero ── */}
             <section className="relative h-[48vh] min-h-[360px] flex items-end overflow-hidden">
-                <Image src="https://images.unsplash.com/photo-1620619767323-b95a89183081?q=80&w=1600&auto=format" alt="Sri Lanka Gallery" fill priority className="object-cover scale-105" />
+                <Image src="/images/hero/sigiriya-fortress-hero.png" alt="Sri Lanka Gallery" fill priority className="object-cover scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
                 <div className="relative z-10 container mx-auto px-6 md:px-12 pb-16">
                     <Link href="/" className="inline-flex items-center space-x-2 text-white/50 hover:text-white transition-colors mb-6 group text-xs font-bold tracking-widest">
@@ -114,8 +114,8 @@ export default function Gallery() {
                                 key={cat}
                                 onClick={() => setCategory(cat)}
                                 className={`px-4 py-2 rounded-full text-[10px] font-black tracking-widest uppercase transition-all ${category === cat
-                                        ? "bg-secondary text-black shadow-[0_4px_12px_rgba(255,143,0,0.3)]"
-                                        : "bg-background border border-[var(--border-color)] text-foreground/50 hover:border-secondary/40"
+                                    ? "bg-secondary text-black shadow-[0_4px_12px_rgba(255,143,0,0.3)]"
+                                    : "bg-background border border-[var(--border-color)] text-foreground/50 hover:border-secondary/40"
                                     }`}
                             >
                                 {cat}

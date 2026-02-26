@@ -37,7 +37,7 @@ export default function Preloader() {
                             initial={{ scale: 0.8, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             transition={{ duration: 1, ease: "easeOut" }}
-                            className="text-8xl md:text-9xl font-black tracking-tighter text-transparent bg-clip-text bg-[url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2000')] bg-cover bg-center"
+                            className="text-8xl md:text-9xl font-black tracking-tighter text-transparent bg-clip-text bg-[url('/images/misc/misty-highlands-preloader.png')] bg-cover bg-center"
                             style={{ WebkitTextStroke: "1px rgba(var(--foreground),0.1)" }}
                         >
                             CHAMI
