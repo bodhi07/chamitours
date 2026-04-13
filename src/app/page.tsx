@@ -697,6 +697,7 @@ export default function Home() {
               {["Privacy", "Terms", "Cookies"].map((l) => (
                 <Link key={l} href="#" className="text-white/20 hover:text-white/60 text-[10px] tracking-widest uppercase font-bold transition-colors">{l}</Link>
               ))}
+              <Link href="/admin" className="text-white/5 hover:text-white/40 text-[10px] tracking-widest uppercase font-bold transition-colors ml-4">Admin</Link>
             </motion.div>
           </div>
         </div>

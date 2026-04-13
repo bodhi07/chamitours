@@ -4,7 +4,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Phone, MessageCircle, X } from "lucide-react";
 import { useState } from "react";
 
+import { usePathname } from "next/navigation";
+
 export default function FloatingActions() {
+    const pathname = usePathname();
+    
+    // Hide FloatingActions on Admin pages
+    if (pathname?.startsWith("/admin")) return null;
     const [open, setOpen] = useState(false);
 
     const actions = [

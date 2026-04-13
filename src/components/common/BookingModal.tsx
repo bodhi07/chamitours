@@ -31,9 +31,45 @@ export default function BookingModal({ isOpen, onClose, preSelectedPackage }: Bo
         "Custom Package",
     ];
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        setSubmitted(true);
+        
+        try {
+            // 1. Save to Database
+            await fetch("/api/bookings", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    name: formData.name,
+                    email: formData.email,
+                    phone: formData.phone,
+                    tour: formData.package,
+                    date: formData.date,
+                    message: `Travelers: ${formData.travelers}. ${formData.message}`,
+                }),
+            });
+
+            // 2. Format WhatsApp Message
+            const whatsappNumber = "0761193338";
+            const message = `*NEW BOOKING REQUEST*%0A%0A` +
+                `*Name:* ${formData.name}%0A` +
+                `*Email:* ${formData.email}%0A` +
+                `*Phone:* ${formData.phone}%0A` +
+                `*Pick-up Package:* ${formData.package}%0A` +
+                `*Date:* ${formData.date}%0A` +
+                `*Travelers:* ${formData.travelers}%0A` +
+                `*Message:* ${formData.message}`;
+            
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+
+            // 3. Set Success UI
+            setSubmitted(true);
+
+            // 4. Open WhatsApp
+            window.open(whatsappUrl, "_blank");
+        } catch (error) {
+            console.error("Booking error", error);
+        }
     };
 
     return (

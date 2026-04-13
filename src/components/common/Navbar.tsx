@@ -16,6 +16,9 @@ export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
   const { language, setLanguage, t } = useLanguage();
   const pathname = usePathname();
+  
+  // Hide Navbar on Admin pages
+  if (pathname?.startsWith("/admin")) return null;
 
   const navLinks = [
     { label: t("nav.home"), href: "/" },

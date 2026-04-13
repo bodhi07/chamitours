@@ -3,7 +3,13 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 
+import { usePathname } from "next/navigation";
+
 export default function Preloader() {
+    const pathname = usePathname();
+    
+    // Hide Preloader on Admin pages
+    if (pathname?.startsWith("/admin")) return null;
     const [loading, setLoading] = useState(true);
     const [progress, setProgress] = useState(0);
 

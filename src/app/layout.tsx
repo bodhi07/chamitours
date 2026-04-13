@@ -25,8 +25,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} antialiased font-sans`}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} antialiased font-sans`} suppressHydrationWarning>
         <ThemeProvider>
           <LanguageProvider>
             <Preloader />
