@@ -21,6 +21,7 @@ import {
     Search
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 // --- Types ---
 type Tab = "dashboard" | "tours" | "packages" | "gallery" | "blogs" | "bookings";
@@ -46,6 +47,7 @@ interface BookingItem {
 }
 
 export default function AdminDashboard() {
+    const router = useRouter();
     const [activeTab, setActiveTab] = useState<Tab>("dashboard");
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [password, setPassword] = useState("");
@@ -83,11 +85,17 @@ export default function AdminDashboard() {
                 fetch(tPath), fetch(pPath), fetch(gPath), fetch(bPath), fetch(bkPath)
             ]);
             
-            setTours(await tRes.json());
-            setPackages(await pRes.json());
-            setGallery(await gRes.json());
-            setBlogs(await bRes.json());
-            setBookings(await bkRes.json());
+            const tData = await tRes.json();
+            const pData = await pRes.json();
+            const gData = await gRes.json();
+            const bData = await bRes.json();
+            const bkData = await bkRes.json();
+
+            if (Array.isArray(tData)) setTours(tData);
+            if (Array.isArray(pData)) setPackages(pData);
+            if (Array.isArray(gData)) setGallery(gData);
+            if (Array.isArray(bData)) setBlogs(bData);
+            if (Array.isArray(bkData)) setBookings(bkData);
         } catch (err) {
             console.error("Failed to fetch admin data", err);
         }
@@ -159,7 +167,10 @@ export default function AdminDashboard() {
 
                 <div className="pt-8 border-t border-white/5">
                     <button 
-                        onClick={() => setIsLoggedIn(false)}
+                        onClick={() => {
+                            setIsLoggedIn(false);
+                            router.push("/");
+                        }}
                         className="w-full flex items-center space-x-4 px-4 py-3.5 rounded-2xl text-red-500/60 hover:bg-red-500/10 hover:text-red-500 transition-all font-bold"
                     >
                         <LogOut className="w-5 h-5" />
@@ -359,8 +370,81 @@ export default function AdminDashboard() {
                          </div>
                     )}
 
+                    {/* Gallery Management */}
+                    {activeTab === "gallery" && (
+                         <div className="space-y-10">
+                            <div className="bg-[#0f0f0f] border border-white/5 p-10 rounded-[2.5rem]">
+                                <h3 className="text-xl font-black mb-8">Upload to Gallery (Direct to Google Drive)</h3>
+                                <form onSubmit={async (e) => {
+                                    e.preventDefault();
+                                    const form = e.target as HTMLFormElement;
+                                    const formData = new FormData();
+                                    const fileInput = form.elements.namedItem("file") as HTMLInputElement;
+                                    if (!fileInput.files?.[0]) return;
+                                    
+                                    formData.append("file", fileInput.files[0]);
+                                    formData.append("title", (form.elements.namedItem("title") as HTMLInputElement).value);
+                                    formData.append("category", (form.elements.namedItem("category") as HTMLSelectElement).value);
+
+                                    const res = await fetch("/api/gallery", {
+                                        method: "POST",
+                                        body: formData,
+                                    });
+
+                                    if(res.ok) {
+                                        form.reset();
+                                        fetchData();
+                                    } else {
+                                        const errorData = await res.json();
+                                        alert(`Upload failed: ${errorData.details || errorData.error}`);
+                                    }
+                                }} className="flex flex-wrap gap-6 items-end">
+                                    <div className="space-y-2 flex-1 min-w-[200px]">
+                                        <label className="text-[10px] font-black tracking-widest text-white/20 uppercase ml-2">Select Image</label>
+                                        <input name="file" type="file" required className="w-full bg-white/5 border border-white/5 rounded-2xl px-6 py-3 text-sm focus:outline-none" />
+                                    </div>
+                                    <div className="space-y-2 flex-1 min-w-[200px]">
+                                        <label className="text-[10px] font-black tracking-widest text-white/20 uppercase ml-2">Image Title</label>
+                                        <input name="title" className="w-full bg-white/5 border border-white/5 rounded-2xl px-6 py-3.5 text-sm focus:outline-none focus:border-primary/50" placeholder="e.g. Sunset in Mirissa" />
+                                    </div>
+                                    <div className="space-y-2 w-48">
+                                        <label className="text-[10px] font-black tracking-widest text-white/20 uppercase ml-2">Category</label>
+                                        <select name="category" className="w-full bg-white/5 border border-white/5 rounded-2xl px-6 py-3.5 text-sm focus:outline-none appearance-none">
+                                            <option value="General">General</option>
+                                            <option value="Beach">Beach</option>
+                                            <option value="Mountains">Mountains</option>
+                                            <option value="Adventure">Adventure</option>
+                                        </select>
+                                    </div>
+                                    <button className="h-14 px-10 bg-primary text-black font-black tracking-widest uppercase rounded-2xl shadow-lg hover:scale-[1.01] transition-all">Upload</button>
+                                </form>
+                            </div>
+
+                            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                                {gallery.map((item: any) => (
+                                    <div key={item._id} className="relative aspect-square rounded-[2rem] overflow-hidden group border border-white/5">
+                                        <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" />
+                                        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center space-x-3">
+                                            <button 
+                                                onClick={async () => {
+                                                    if(confirm("Delete this image?")) {
+                                                        await fetch(`/api/gallery/${item._id}`, { method: "DELETE" });
+                                                        fetchData();
+                                                    }
+                                                }}
+                                                className="w-10 h-10 rounded-full bg-red-500/20 text-red-500 hover:bg-red-500 hover:text-white transition-all flex items-center justify-center"
+                                            >
+                                                <Trash2 className="w-4 h-4" />
+                                            </button>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                         </div>
+                    )}
+
                     {/* Other tabs would go here similarly with CRUD functionality */}
-                    {activeTab !== "dashboard" && activeTab !== "tours" && (
+                    {activeTab !== "dashboard" && activeTab !== "tours" && activeTab !== "gallery" && (
                          <div className="flex flex-col items-center justify-center py-20 text-center text-white/20">
                             <Clock className="w-12 h-12 mb-4 animate-pulse opacity-50" />
                             <h3 className="text-2xl font-black uppercase tracking-tighter">Syncing Modules...</h3>

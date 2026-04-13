@@ -17,8 +17,6 @@ export default function Navbar() {
   const { language, setLanguage, t } = useLanguage();
   const pathname = usePathname();
   
-  // Hide Navbar on Admin pages
-  if (pathname?.startsWith("/admin")) return null;
 
   const navLinks = [
     { label: t("nav.home"), href: "/" },
@@ -42,6 +40,9 @@ export default function Navbar() {
     setLanguage(language === "en" ? "de" : "en");
   };
 
+  // Hide Navbar on Admin pages
+  if (pathname?.startsWith("/admin")) return null;
+
   return (
     <>
       <BookingModal isOpen={bookingOpen} onClose={() => setBookingOpen(false)} />
@@ -55,7 +56,7 @@ export default function Navbar() {
               <span className="text-2xl md:text-3xl font-black tracking-tighter text-primary transition-all group-hover:scale-105">
                 CHAMI
               </span>
-              <span className="text-[0.6rem] md:text-[0.7rem] tracking-[0.5em] text-foreground/50 font-semibold mt-[-2px] group-hover:text-primary transition-colors uppercase">
+              <span className="text-[0.6rem] md:text-[0.7rem] tracking-[0.5em] text-black/50 font-bold mt-[-2px] group-hover:text-primary transition-colors uppercase">
                 TOURS
               </span>
             </Link>
@@ -68,7 +69,7 @@ export default function Navbar() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={`relative text-xs font-bold tracking-[0.15em] transition-colors py-2 group ${active ? "text-primary" : "text-foreground/55 hover:text-primary"}`}
+                    className={`relative text-[11px] font-black tracking-[0.2em] transition-colors py-2 group ${active ? "text-primary" : "text-black hover:text-primary"}`}
                   >
                     {item.label}
                     <span className={`absolute bottom-0 left-0 h-[2px] rounded-full bg-primary transition-all duration-300 ${active ? "w-full" : "w-0 group-hover:w-full"}`} />
@@ -85,7 +86,7 @@ export default function Navbar() {
                 className="hidden md:flex items-center space-x-1.5 bg-foreground/5 border border-foreground/8 px-3 py-1.5 rounded-full hover:bg-foreground/10 transition-colors cursor-pointer group"
               >
                 <Globe className="w-3.5 h-3.5 text-primary group-hover:rotate-12 transition-transform" />
-                <span className="text-[11px] font-bold tracking-widest text-foreground/80">{language.toUpperCase()}</span>
+                <span className="text-[11px] font-black tracking-widest text-black">{language.toUpperCase()}</span>
               </button>
 
               {/* Theme toggle */}
@@ -112,7 +113,7 @@ export default function Navbar() {
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 aria-label="Toggle menu"
               >
-                {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {isMobileMenuOpen ? <X className="w-6 h-6 text-black" /> : <Menu className="w-6 h-6 text-black" />}
               </button>
             </div>
           </div>
@@ -133,7 +134,7 @@ export default function Navbar() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={`text-sm font-bold tracking-[0.28em] uppercase transition-colors ${active ? "text-primary" : "text-foreground/60 hover:text-primary"}`}
+                    className={`text-sm font-black tracking-[0.28em] uppercase transition-colors ${active ? "text-primary" : "text-foreground/80 hover:text-primary"}`}
                   >
                     {item.label}
                   </Link>

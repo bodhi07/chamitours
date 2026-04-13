@@ -8,8 +8,6 @@ import { usePathname } from "next/navigation";
 export default function Preloader() {
     const pathname = usePathname();
     
-    // Hide Preloader on Admin pages
-    if (pathname?.startsWith("/admin")) return null;
     const [loading, setLoading] = useState(true);
     const [progress, setProgress] = useState(0);
 
@@ -28,6 +26,9 @@ export default function Preloader() {
 
         return () => clearInterval(timer);
     }, []);
+
+    // Hide Preloader on Admin pages
+    if (pathname?.startsWith("/admin")) return null;
 
     return (
         <AnimatePresence>

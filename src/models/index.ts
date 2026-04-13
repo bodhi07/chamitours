@@ -28,6 +28,7 @@ const GallerySchema = new Schema({
     title: { type: String },
     image: { type: String, required: true },
     category: { type: String },
+    driveId: { type: String },
 }, { timestamps: true });
 
 export const Gallery = models.Gallery || model("Gallery", GallerySchema);
